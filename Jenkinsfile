@@ -35,6 +35,10 @@ pipeline{
                 echo 'Testing...'
                 sh 'mvn test'
             }
+            post {
+               success {
+                   junit 'target/surefire-reports/*.xml'
+               }
         }  
        stage('Metric Check')
         {
