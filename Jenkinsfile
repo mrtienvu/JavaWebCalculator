@@ -14,14 +14,14 @@ pipeline{
             
             }
         }
-        stage('Compile')
+      stage('Compile')
         {
             steps{
                 echo 'Compiling...'
                 sh 'mvn compile'
             }
         }
-          stage('CodeReview')
+      stage('CodeReview')
         {
             steps{
                 echo 'Reviewing...'
@@ -29,7 +29,7 @@ pipeline{
             }
         }
         
-    stage('UnitTesting')
+      stage('UnitTesting')
         {
             steps{
                 echo 'Testing...'
@@ -39,6 +39,7 @@ pipeline{
                success {
                    junit 'target/surefire-reports/*.xml'
                }
+            }
         }  
        stage('Metric Check')
         {
