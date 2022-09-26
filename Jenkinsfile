@@ -47,11 +47,6 @@ pipeline{
                 echo 'Metric checking...'
                 sh 'mvn cobertura:cobertura -Dcoberture.report.format=xml'
             }
-            post {
-                success {
-                    cobertura coberturaReportFile: 'target/site/cobertura/coverage.xml'
-                }
-            }
         }     
           stage('Package')
         {
